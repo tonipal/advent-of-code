@@ -45,4 +45,3 @@ const playRockPaperScissors = () => {
 }
 
 console.log(playRockPaperScissors());
-
