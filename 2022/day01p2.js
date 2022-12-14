@@ -19,6 +19,3 @@ const getTopThreeTotal = () => {
 }
 
 console.log(getTopThreeTotal());
-
-
-
