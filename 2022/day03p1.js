@@ -20,4 +20,3 @@ const rearrangeRucksack = () => {
 }
 
 console.log(rearrangeRucksack());
-
