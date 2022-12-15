@@ -1,37 +1,35 @@
 const fs = require('fs');
 
-const findBadgeAndReturnValue = (line1, line2, line3) => {
-    const itemPriorities = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const calculateNewArray = (min, max) => {
+    let newArray = [min];
+    let numbers = max - min;
 
-    for(let i = 0; i < itemPriorities.length; i++) {
-        if(line1.includes(itemPriorities[i]) && line2.includes(itemPriorities[i]) && line3.includes(itemPriorities[i])) {
-            return i + 1;
-        }
+    for (let i = 0; i < numbers; i++) {
+        newArray.push(min + i)
     }
+
+    return newArray;
 }
 
-const solveAuthenticityBadgeIssue = () => {
-    let sumOfPriorities = 0;
-    let lineNumber = 0;
-
-    let group = [];
-
-    const allFileContents = fs.readFileSync('itemsInsideRucksack.txt', 'utf-8');
+const resolveSectionOverlaps = () => {
+    let count = 0;
+   
+    const allFileContents = fs.readFileSync('assignedSectionPairs.txt', 'utf-8');
     allFileContents.split(/\r?\n/).forEach(line =>  {
-        group.push(line)
-        lineNumber += 1;
+        let sectionsArr = line.split(',');
+        let firstElf = sectionsArr[0].split('-');
+        let secondElf = sectionsArr[1].split('-');
 
-        if(lineNumber % 3 === 0) {
-            sumOfPriorities += findBadgeAndReturnValue(group[0], group[1], group[2]);
-            group.pop();
-            group.pop();
-            group.pop();
+        let x = calculateNewArray(firstElf[0], firstElf[1]);
+        let y = calculateNewArray(secondElf[0], secondElf[1]);
+
+        if (x.includes(y) || y.includes(x)) {
+            count += count + 1;
         }
     });
-
-    return sumOfPriorities;
+    return count;
 }
 
-console.log(solveAuthenticityBadgeIssue());
+console.log(resolveSectionOverlaps());
 
 
