@@ -35,5 +35,3 @@ const resolveSectionOverlaps = () => {
 }
 
 console.log(resolveSectionOverlaps());
-
-
