@@ -1,39 +1,43 @@
 const fs = require('fs');
 
-const calculateNewArray = (min, max) => {
-    let newArray = [];
-    let numbers = max - min;
+const startCrateOperations = () => {
+    // stacks initial state
+    stacks = [
+        ['R','G','J','B','T','V','Z'],
+        ['J','R','V','L'],
+        ['S','Q','F'],
+        ['Z','H','N','L','F','V','Q','G'],
+        ['R','Q','T','J','C','S','M','W'],
+        ['S','W','T','C','H','F'],
+        ['D','Z','C','V','F','N','J'],
+        ['L','G','Z','D','W','R','F','Q'],
+        ['J','B','W','V','P']
+    ]
 
-    for (let i = 0; i <= numbers; i++) {
-        newArray.push(min + i)
-    }
+    let currentLine = 0;
 
-    return newArray;
-}
-
-const resolveSectionOverlaps = () => {
-    let count = 0;
-
-    const allFileContents = fs.readFileSync('assignedSectionPairs.txt', 'utf-8');
+    const allFileContents = fs.readFileSync('crateOperations.txt', 'utf-8');
     allFileContents.split(/\r?\n/).forEach(line =>  {
-        sectionsArr = line.split(',')
-        
-        let firstElf = sectionsArr[0].split('-');
-        let secondElf = sectionsArr[1].split('-');
+        currentLine += 1;
 
-        let x = calculateNewArray(Number(firstElf[0]), Number(firstElf[1]));
-        let y = calculateNewArray(Number(secondElf[0]), Number(secondElf[1]));
+        if(currentLine > 10) {
+            const cargoCraneCommands = line.split(' ');
+            let amountOfCrates = Number(cargoCraneCommands[1]);
+            let fromStack = Number(cargoCraneCommands[3]);
+            let toStack = Number(cargoCraneCommands[5]);
 
-        let allFoundX = x.some( ai => y.includes(ai) );
-        let allFoundY = y.some( ai => x.includes(ai) );
-
-        if (allFoundX || allFoundY) {
-            count += 1;
+            // for(let i = 0; i < amountOfCrates; i++) {
+            //     let lastEl = stacks[fromStack[-1]]
+            //     stacks[toStack].push(lastEl);
+            //     stacks[fromStack].pop();
+            // }
         }
     });
-    return count;
+    // for(let i = 0; i < stacks.length; i++) {
+    //     return stacks[i][-1];
+    // }
 }
 
-console.log(resolveSectionOverlaps());
+console.log(startCrateOperations());
 
 
