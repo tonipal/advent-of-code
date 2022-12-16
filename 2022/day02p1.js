@@ -11,7 +11,7 @@ const playRockPaperScissors = () => {
     const playerChosePaper = 2;
     const playerChoseScissors = 3;
 
-    const allFileContents = fs.readFileSync('strategyGuide.txt', 'utf-8');
+    const allFileContents = fs.readFileSync('inputData/strategyGuide.txt', 'utf-8');
     allFileContents.split(/\r?\n/).forEach(line =>  {
         if (line[0] === 'A' && line[2] === 'X') {
             totalScore += draw + playerChoseRock

@@ -14,7 +14,7 @@ const calculateNewArray = (min, max) => {
 const resolveSectionOverlaps = () => {
     let count = 0;
 
-    const allFileContents = fs.readFileSync('assignedSectionPairs.txt', 'utf-8');
+    const allFileContents = fs.readFileSync('inputData/assignedSectionPairs.txt', 'utf-8');
     allFileContents.split(/\r?\n/).forEach(line =>  {
         sectionsArr = line.split(',')
         

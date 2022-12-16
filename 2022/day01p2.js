@@ -4,7 +4,7 @@ const calculateSum = (x, y, z) => x + y + z;
 
 const getTopThreeTotal = () => {
     let caloriesArray = [0];
-    const allFileContents = fs.readFileSync('caloriesOnElf.txt', 'utf-8');
+    const allFileContents = fs.readFileSync('inputData/caloriesOnElf.txt', 'utf-8');
     allFileContents.split(/\r?\n/).forEach(line =>  {
         if (line == "") {
             caloriesArray.push(0);

@@ -16,7 +16,7 @@ const solveAuthenticityBadgeIssue = () => {
 
     let group = [];
 
-    const allFileContents = fs.readFileSync('itemsInsideRucksack.txt', 'utf-8');
+    const allFileContents = fs.readFileSync('inputData/itemsInsideRucksack.txt', 'utf-8');
     allFileContents.split(/\r?\n/).forEach(line =>  {
         group.push(line)
         lineNumber += 1;
