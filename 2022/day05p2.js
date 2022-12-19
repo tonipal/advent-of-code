@@ -17,7 +17,7 @@ const startCrateOperations = () => {
     let currentLine = 0;
     let answer = [];
 
-    const allFileContents = fs.readFileSync('crateOperations.txt', 'utf-8');
+    const allFileContents = fs.readFileSync('inputData/crateOperations.txt', 'utf-8');
     allFileContents.split(/\r?\n/).forEach(line =>  {
         currentLine += 1;
 
@@ -41,5 +41,3 @@ const startCrateOperations = () => {
 }
 
 console.log(startCrateOperations());
-
-
