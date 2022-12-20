@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const findMarker = () => {
 
-    const allFileContents = fs.readFileSync('datastream.txt', 'utf-8');
+    const allFileContents = fs.readFileSync('inputData/datastream.txt', 'utf-8');
     const input = allFileContents;
     const hitMarkerAt = [];
 
@@ -20,5 +20,3 @@ const findMarker = () => {
 }
 
 console.log(findMarker());
-
-
