@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const allFileContents = fs.readFileSync('treegrid.txt', 'utf-8');
+const allFileContents = fs.readFileSync('inputData/treegrid.txt', 'utf-8');
 const input = allFileContents.split('\r\n');
 
 const testData = [
