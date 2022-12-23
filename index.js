@@ -127,7 +127,7 @@ function findBestSpot(input) {
     return scenicScore;
 }
 
-console.log(findBestSpot(input));
+console.log(findBestSpot(testData));
 
 
             // let leftContinue = true;
